@@ -1,0 +1,227 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% load humanize %}
+{% load ratings %}
+{% block title %}{% trans "home page" %}{% endblock title %}
+
+{% block content %}
+    <!-- Topbar Start -->
+    <!-- Navbar End -->
+
+
+    <!-- Carousel Start -->
+    <div class="container-fluid mb-3">
+        <div class="row px-xl-5">
+            <div class="col-lg-4">
+                {% for rate in toprate %}
+                    <div class="product-offer mb-30" style="height: 200px;">
+                        <img class="img-fluid" src="{{rate.cover.url}}" alt="book cover">
+                        <div class="offer-text">
+                            <h6 class="text-white text-uppercase">{{rate.ratings.count}} rate</h6>
+                            <h3 class="text-white mb-3">most rated last month</h3>
+                            <a href="{% url 'book_detail' rate.id %}" class="btn btn-primary">watch</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                {% for top in topview %}
+                    <div class="product-offer mb-30" style="height: 200px;">
+                        <img class="img-fluid" src="{{top.cover.url}}" alt="book cover">
+                        <div class="offer-text">
+                            <h6 class="text-white text-uppercase">{{top.hits.count}} views</h6>
+                            <h3 class="text-white mb-3">most view last month</h3>
+                            <a href="{% url 'book_detail' top.id %}" class="btn btn-primary">watch</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+
+    <!-- Featured Start -->
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5 pb-3">
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                    <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">{% trans "Quality Product" %}</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                    <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
+                    <h5 class="font-weight-semi-bold m-0">{% trans "Free Shipping" %}</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                    <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">{% trans "14-Day Return" %}</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                    <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">{% trans "24/7 Support" %}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Featured End -->
+
+
+    <!-- Categories Start -->
+    <div class="container-fluid pt-5">
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">{% trans "Categories" %}</span></h2>
+        <div class="row px-xl-5 pb-3">
+            {% for category in categories %}
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                    <a class="text-decoration-none" href="{% url 'book_category' category.id %}">
+                        <div class="cat-item d-flex align-items-center mb-4">
+                            <div class="overflow-hidden" style="width: 100px; height: 100px;">
+                                {% if category.cover %}
+                                    <img class="img-fluid" src="{{category.cover.url}}" alt="category cover">
+                                    {% else %}
+                                    <img class="img-fluid" src="{% static 'img/cat-2.jpg' %}" alt="category cover">
+                                {% endif %}
+                            </div>
+                            <div class="flex-fill pl-3">
+                                <h6>{{category.title}}</h6>
+                                <small class="text-body">{{category.books.count}} {% trans "book" %}</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Categories End -->
+
+
+    <!-- Products Start -->
+    <!-- Products End -->
+
+    <div class="container-fluid pt-5">
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">{% trans "filters" %}</span></h2>
+        <div class="row px-xl-5 pb-3">
+            <div class="bg-light px-2 py-4 mb-30">
+                <form class='col-lg-3 bg-secondary text-dark' method='GET' action="{% url 'filter_by_price' %}">
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-center mb-3">
+                        <span><p>from :</p>
+                            <span id="rangeValue">2000</span><span> T</span>
+                            <input class="form-range" name="price1" type="range" min="2000" max="300000" value='2000' onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)">
+                            {% comment %} <select name="price1">
+                                <option value='2000'>2000</option>
+                                <option value='4000'>4000</option>
+                                <option value='8000'>8000</option>
+                                <option value='15000'>15000</option>
+                                <option value='40000'>40000</option>
+                            </select> {% endcomment %}
+                        </span>                                      
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-center mb-3">
+                        <span><p>to :</p>
+                            <span id="rangeValue2">2000</span><span> T</span>
+                            <input class="form-range" name="price2" type="range" min="2000" max="300000" value='2000' onChange="rangeSlide2(this.value)" onmousemove="rangeSlide2(this.value)">
+                            {% comment %} <select name="price2">
+                                <option value='4000'>4000</option>
+                                <option value='8000'>8000</option>
+                                <option value='15000'>15000</option>
+                                <option value='40000'>40000</option>
+                                <option value='400000'>400000</option>
+                            </select> {% endcomment %}
+                        </span>                                       
+                    </div>                        
+                  
+                    <div class='text-center'>
+                        <button class='btn btn-primary'>search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Offer Start -->
+    <div class="container-fluid pt-5 pb-3">
+        <div class="row px-xl-5">
+            <div class="col-md-6">
+                <div class="product-offer mb-30" style="height: 300px;">
+                    <img class="img-fluid" src="{% static 'img/offer-1.jpg' %}" alt="">
+                    <div class="offer-text">
+                        <h6 class="text-white text-uppercase">Save 20%</h6>
+                        <h3 class="text-white mb-3">Special Offer</h3>
+                        <a href="" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="product-offer mb-30" style="height: 300px;">
+                    <img class="img-fluid" src="{% static 'img/offer-2.jpg' %}" alt="">
+                    <div class="offer-text">
+                        <h6 class="text-white text-uppercase">Save 20%</h6>
+                        <h3 class="text-white mb-3">Special Offer</h3>
+                        <a href="" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Offer End -->
+
+
+    <!-- Products Start -->
+    <div class="container-fluid pt-5 pb-3">
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">{% trans "Recent Books" %}</span></h2>
+        <div class="row px-xl-5">
+            {% for book in home_book %}
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                    <div class="product-item bg-light mb-4">
+                        <div class="product-img position-relative overflow-hidden">
+                            <img style='height:250px;' class="img-fluid w-100" src="{{book.cover.url}}" alt="book cover">
+                        </div>
+                        <div class="text-center py-4">
+                            <form class="py-2" action="{% url 'add_cart' book.id %}" method="POST">
+                                {% csrf_token %}
+                                <input name="quantity" type="hidden" value="1">
+                                <div>
+                                    <button class='btn btn-warning' type="submit">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                            </form>
+
+                            <a class="h6 text-decoration-none text-truncate" href="{% url 'book_detail' book.id %}">{{book.Title}}</a><br>
+                            <p>seller : <a class='badge badge-warning' href="{% url 'book_seller' book.seller.id %}">{{book.seller}}</a></p>
+                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                {% if book.price_with_discount %}
+                                    <a href="{% url 'book_detail' book.id %}"><h5>{{book.price_with_discount|intcomma}}</h5></a><h6 class="text-muted ml-2"><del class='text-danger'>{{book.Price}}</del></h6>              
+                                {% else %}
+                                    <a href="{% url 'book_detail' book.id %}"><h5>{{book.Price|intcomma}}</h5></a><h6 class="text-muted ml-2"></h6>
+                                {% endif %}                           
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                {% ratings book %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Products End -->
+
+
+    <!-- Vendor Start -->
+
+    <!-- Vendor End -->
+
+
+    <!-- Footer Start -->
+    
+
+{% endblock content %}
+    <!-- JavaScript Libraries -->

@@ -1,0 +1,138 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% load ratings %}
+{% load humanize %}
+{% load i18n %}
+{% block title %}{% trans "bookmark Page" %}{% endblock title %}
+{% block content %}
+    <!-- Breadcrumb Start -->
+
+    <!-- Breadcrumb End -->
+
+
+    <!-- Shop Start -->
+    <div class="container-fluid">
+        <div class="row px-xl-5">
+            <!-- Shop Sidebar Start -->
+            <div class="col-lg-3 col-md-4">
+                <!-- Price Start -->
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">{% trans "Filter by price" %}</span></h5>
+                <div class="bg-light p-4 mb-30">
+                    <form method='GET' action="{% url 'filter_by_price' %}">
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-center mb-3">
+                            <span><p>from :</p>
+                                <span id="rangeValue">2000</span><span> T</span>
+                                <input class="form-range" name="price1" type="range" min="2000" max="300000" value='2000' onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)">
+                                {% comment %} <select name="price1">
+                                    <option value='2000'>2000</option>
+                                    <option value='4000'>4000</option>
+                                    <option value='8000'>8000</option>
+                                    <option value='15000'>15000</option>
+                                    <option value='40000'>40000</option>
+                                </select> {% endcomment %}
+                            </span>                                      
+                        </div>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-center mb-3">
+                            <span><p>to :</p>
+                                <span id="rangeValue2">2000</span><span> T</span>
+                                <input name="price2" class="form-range" type="range" min="2000" max="300000" value='2000' onChange="rangeSlide2(this.value)" onmousemove="rangeSlide2(this.value)">
+                                {% comment %} <select name="price2">
+                                    <option value='4000'>4000</option>
+                                    <option value='8000'>8000</option>
+                                    <option value='15000'>15000</option>
+                                    <option value='40000'>40000</option>
+                                    <option value='400000'>400000</option>
+                                </select> {% endcomment %}
+                            </span>                                       
+                        </div>                        
+                      
+                        <div class='text-center'>
+                            <button class='btn btn-primary'>search</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Price End -->
+                
+                <!-- Color Start -->
+
+                <!-- Size End -->
+            </div>
+            <!-- Shop Sidebar End -->
+
+
+            <!-- Shop Product Start -->
+            <div class="col-lg-9 col-md-8">
+                <div class="row pb-3">
+                    {% for book in bookmarked %}
+                        <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
+                            <div class="product-item bg-light mb-4">
+                                <div class="product-img position-relative overflow-hidden">
+                                    <img style='height:250px;' class="img-fluid w-100" src="{{book.books.cover.url}}" alt="book cover">
+                                </div>
+                                <div class="text-center py-3">
+                                    <form class="py-2" action="{% url 'add_cart' book.books.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <input name="quantity" type="hidden" value="1">
+                                        <div>
+                                            <button class='btn btn-warning' type="submit">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </button>
+                                        </div>
+                                    </form>
+                                    <a class="h6 text-decoration-none text-truncate" href="{% url 'book_detail' book.books.id %}">{{book.books.Title}}</a><br>
+                                    <p> seller : <a class="badge badge-warning" href="{% url 'book_seller' book.books.seller.id %}">{{book.books.seller}}</a></p>
+                                    <div class="d-flex align-items-center justify-content-center mt-2">
+                                        {% comment %} add price with discount by if and else tag {% endcomment %}
+                                        {% if book.books.price_with_discount %}
+                                            <h5>{{book.books.price_with_discount|intcomma}}</h5><h6 class="text-muted ml-2"><del class='text-danger'>{{book.books.Price}}</del></h6>
+                                        {% else %}
+                                            <h5>{{book.books.Price|intcomma}}</h5><h6 class="text-muted ml-2"></h6>
+                                        {% endif %}
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-center mb-1">
+                                        {% ratings book.books %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="col-md-12">
+                        {% if page_obj.has_other_pages %}
+                            <nav>
+                                <ul class="pagination justify-content-center">
+                                    {% if page_obj.has_previous %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number}}{% if request.GET.search %}&search={{request.GET.search}}{% endif %}"><i class="fa fa-angle-double-left"></i></a></li>
+                                    {% endif %}
+                                    {% for i in page_obj.paginator.page_range %}
+                                        {% if page_obj.number == i %}
+                                            <li class="page-item active"><a class="page-link" href="?page={{i}}{% if request.GET.search %}&search={{request.GET.search}}{% endif %}">{{i}}</a></li>
+                                        {% else %}
+                                            <li class="page-item"><a class="page-link" href="?page={{i}}{% if request.GET.search %}&search={{request.GET.search}}{% endif %}">{{i}}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% if page_obj.has_next  %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number}}{% if request.GET.search %}&search={{request.GET.search}}{% endif %}"><i class="fa fa-angle-double-right"></i></a></li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <!-- Shop Product End -->
+        </div>
+    </div>
+    <!-- Shop End -->
+
+
+    <!-- Footer Start -->
+
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+{% endblock content %}
+    <!-- JavaScript Libraries -->

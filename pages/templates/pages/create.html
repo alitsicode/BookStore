@@ -1,0 +1,55 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block title %}{% trans "Create Product" %}{% endblock title %}
+
+{% block content %}
+    <div class="py-3"></div>
+    <div class="container">
+        
+        <form enctype='multipart/form-data' method="POST" action="">
+            {% csrf_token %}
+            <div style='border:2px black solid;' class="row p-3 ">
+                <div class='bg-primary mb-3 rounded-pill'><h2 class='text-center text-white p-1'><strong>{% trans "create new product" %}</strong></h2></div>
+                <div class="col-md-6">
+                    {{form.Title|as_crispy_field}}
+                </div>
+                {% if request.user.is_superuser %}
+                    <div class="col-md-6">
+                        {{form.seller|as_crispy_field}}
+                    </div>
+                {% endif %}
+                <div class="col-md-6 pb-2">
+                    {{form.Price|as_crispy_field}}
+                </div>
+                {% comment %} add price with discount {% endcomment %}
+                <div class="col-md-12 pb-2">
+                    {{form.Summary|as_crispy_field}}
+                </div>
+                <div class="col-md-6">
+                    {{form.exist|as_crispy_field}}   
+                </div>
+                <div class="col-md-6">
+                    {{form.Author|as_crispy_field}}   
+                </div>
+                <div class="col-md-6">
+                    {{form.page_count|as_crispy_field}}   
+                </div>
+                <div class="col-md-6">
+                    {{form.Category|as_crispy_field}}   
+                </div>
+                <div class="col-md-6">
+                    {{form.Information|as_crispy_field}}   
+                </div>
+                <div class="col-md-6 pt-3">
+                    {{form.cover|as_crispy_field}}
+                </div>
+                <div class="col-md-12 text-center  ">
+                    <button class='btn btn-success' type='submit'>{% trans "Create" %}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="py-3"></div>
+{% endblock content %}

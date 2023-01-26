@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block title %} {% trans "Profile" %} {% endblock title %}
+
+{% block content %}
+    <div class="py-3"></div>
+    <div class="container pb-3">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div style='background-color:#cbcbcb;' class="card card-primary card-outline">
+                    <div class="card-body box-profile">
+                      <div class="text-center">
+                        <div class="text-center bg-info rounded-pill"><h3 class='text-dark p-2'>{% trans "your profile" %}</h3></div>
+                        {% if user.avatar %}
+                            <img style='width:100px;height:;100px' class="profile-user-img img-fluid img-circle" src="{{user.avatar.url}}" alt="User profile picture">
+                        {% else %}
+                            <img style='width:100px;height:;100px' class="profile-user-img img-fluid img-circle" src="{% static 'img/anonymous.png' %}" alt="User profile picture">
+                        {% endif %}
+                      </div>
+      
+                      <h3 class="profile-username text-center">{% trans "Hi" %} {{user.username}}</h3>
+      
+                      <form enctype='multipart/form-data' action="" method='POST'>
+                        {% csrf_token %}
+                        <ul class="list-group list-group-unbordered mb-3 ">
+                            <li class="list-group-item ">
+                                {{form.first_name|as_crispy_field}}
+                            </li>
+                            <li class="list-group-item">
+                                {{form.last_name|as_crispy_field}}
+                            </li>
+                            <li class="list-group-item">
+                                {{form.username|as_crispy_field}}
+                            </li>
+                            <li class="list-group-item">
+                                {{form.email|as_crispy_field}}
+                            </li>
+                            <li class="list-group-item">
+                                {{form.age|as_crispy_field}}
+                            </li>
+                            <li class="list-group-item">
+                                {{form.date_joined|as_crispy_field}}
+                            </li>
+                            <li class="list-group-item">
+                                {{form.avatar|as_crispy_field}}
+                            </li>
+                            <li class="list-group-item">
+                                {{form.is_staff|as_crispy_field}}
+                            </li>
+                            <li class="list-group-item">
+                                {{form.is_seller|as_crispy_field}}
+                            </li>
+                        </ul>
+                        <div class="text-center">
+                            <button type='submit' class='btn btn-primary text-center'>{% trans "Save" %}</button>
+                        </div>
+                       </form>
+      
+                    </div>
+                    <!-- /.card-body -->
+                  </div>
+            </div>
+        </div>
+        {% comment %} <form enctype='multipart/form-date' action="" method='POST'>
+            {% csrf_token %}
+            <div style='border:2px black solid;' class="row py-3">
+                <div class="col-md-6">
+                    {{form.first_name|as_crispy_field}}
+                </div>
+                <div class="col-md-6">
+                    {{form.last_name|as_crispy_field}}
+                </div>
+                <div class="col-md-6">
+                    {{form.username|as_crispy_field}}
+                </div>
+                <div class="col-md-6">
+                    {{form.email|as_crispy_field}}
+                </div>
+                <div class="col-md-6">
+                    {{form.age|as_crispy_field}}
+                </div>
+                <div class="col-md-6">
+                    {{form.date_joined|as_crispy_field}}
+                </div>
+                <div class="col-md-6">
+                    {{form.avatar|as_crispy_field}}
+                </div>
+                
+                <div class="col-md-6">
+                    {{form.is_staff|as_crispy_field}}
+                </div>
+                <div class="col-md-12 text-center">
+                    <button type='submit' class='btn btn-primary'>Update</button>
+                </div>
+            </div>
+        </form> {% endcomment %}
+    </div>
+{% endblock content %}

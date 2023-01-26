@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-05 17:28+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: .\models.py:7
+msgid "Shop_name"
+msgstr "نام فروشگاه"
+
+#: .\models.py:8
+msgid "description"
+msgstr "توضیحات"
+
+#: .\models.py:9
+msgid "Phone number"
+msgstr "شماره تلفن"
+
+#: .\models.py:10
+msgid "telegram"
+msgstr "تلگرام"
+
+#: .\models.py:11
+msgid "instagram"
+msgstr "اینستاگرام"
+
+#: .\models.py:12
+msgid "Linkdin"
+msgstr "لینکداین"
+
+#: .\models.py:13
+msgid "whatsapp"
+msgstr "واتساپ"
+
+#: .\models.py:14
+msgid "reward"
+msgstr "دستاورد ها"
+
+#: .\models.py:15
+msgid "inventors"
+msgstr ""
+
+#: .\models.py:16
+msgid "Images"
+msgstr "تصاویر"
+
+#: .\models.py:22
+msgid "About u"
+msgstr "درباره ما"
+
+#: .\models.py:25
+msgid "User"
+msgstr "کاربر"
+
+#: .\models.py:26
+msgid "your text"
+msgstr "متن شما"
+
+#: .\models.py:27
+msgid "created"
+msgstr "زمان ایجاد"
+
+#: .\templates\information\aboutus.html:4
+msgid "about us page"
+msgstr "درباره ما"
+
+#: .\templates\information\aboutus.html:27
+msgid "What we do?"
+msgstr "فعالیت ما"
+
+#: .\templates\information\aboutus.html:55
+msgid "Our Team Members"
+msgstr "اعضای تیم ما"
+
+#: .\templates\information\aboutus.html:103
+msgid "our rewards"
+msgstr "دستاورد های ما"
+
+#: .\templates\information\contactus.html:6
+#: .\templates\information\contactus.html:15
+msgid "Contact Us"
+msgstr "ارتباط با ما"
+
+#: .\templates\information\contactus.html:16
+msgid "leave us your message"
+msgstr "پیامی بنویسید"
+
+#: .\templates\information\contactus.html:27
+msgid "Send Message"
+msgstr "ارسال پیام"

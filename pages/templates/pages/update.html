@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block title %}{% trans "Update Product" %}{% endblock title %}
+
+{% block content %}
+    <div class="py-3"></div>
+    <div class="container pb-3">
+        <form enctype='multipart/form-data' method='POST' action="">
+            {% csrf_token %}
+            <div style='border:2px black solid;' class="row p-3">
+                <div class='bg bg-primary rounded-pill mb-3'><h2 class='text-center text-white'><strong>{% trans "Update" %} <span class='text-dark'>"{{book.Title}}"</span> book</strong></h2></div>
+                <div class="col-md-6">
+                    {{form.Title|as_crispy_field}}
+                </div>
+                {% if request.user.is_superuser %}
+                    <div class="col-md-6">
+                        {{form.seller|as_crispy_field}}
+                    </div>
+                {% endif %}
+                <div class="col-md-6 pb-2">
+                    {{form.Price|as_crispy_field}}
+                </div>
+                <div class="col-md-12 pb-2">
+                    {{form.Summary|as_crispy_field}}
+                </div>
+                <div class="col-md-6 ">
+                    {{form.exist|as_crispy_field}}   
+                </div>
+                <div class="col-md-6 ">
+                    {{form.Author|as_crispy_field}}   
+                </div>
+                <div class="col-md-6 ">
+                    {{form.page_count|as_crispy_field}}   
+                </div>
+                <div class="col-md-6 ">
+                    {{form.Category|as_crispy_field}}   
+                </div>
+                <div class="col-md-6 ">
+                    {{form.Information|as_crispy_field}}   
+                </div>
+                <div class="col-md-6 text-center">
+                    {{form.cover|as_crispy_field}}
+                </div>
+                <div class="col-md-12 text-center">
+                    <button class='btn btn-primary' type='submit'>{% trans "Update" %}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

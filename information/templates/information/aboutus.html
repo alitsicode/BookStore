@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans "about us page" %}{% endblock title %}
+{% block content %}
+
+
+    <!-- ***** Preloader Start ***** -->
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+
+
+    <!-- Page Content -->
+
+
+    <div class="best-features about-features">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="right-image">
+              <img style='width:400px;height:300px;' src="{{us.work_image.url}}" alt="work image">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="left-content">
+              <h4>{% trans "What we do?" %}</h4>
+              <p>{{us.description}}</p>
+              <ul class="social-icons pt-3">
+                {% if us.instagram %}
+                <li class='social-place pr-5'><a href="https://instagram.com.{{us.instagram}}"><i class="fa-brands fa-instagram fa-2x"></i></a></li>
+                {% endif %}
+                {% if us.linkdin %}
+                <li class='social-place pr-5'><a href="https://www.linkdin.com/groups/{{us.linkdin}}"><i class="fa-brands fa-linkedin fa-2x"></i></a></li>
+                {% endif %}
+                {% if us.whatsapp %}
+                <li class='social-place pr-5'><a href="https://wa.me/+98{{us.whatsapp}}"><i class="fa-brands fa-whatsapp fa-2x"></i></a></li>
+                {% endif %}
+                {% if us.telegram %}
+                <li class='social-place pr-5'><a href="https://te.me/{{us.telegram}}"><i class="fa-brands fa-telegram fa-2x"></i></a></li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="team-members">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>{% trans "Our Team Members" %}</h2>
+            </div>
+          </div>
+          {% for user in users %}
+            {% if user.is_seller %}
+              <div class="col-md-4">
+                <div class="team-member">
+                  <div class="thumb-container">
+                    {% if user.avatar %}
+                      <img style='width:200px;height:200px;' src="{{user.avatar.url}}" alt="team member">
+                    {% else %}
+                      <img style='width:400px;' src="{% static 'img/offer-1.jpg' %}" alt="team member">
+                    {% endif %}
+                    <div class="hover-effect">
+                      <div class="hover-content">
+                        <ul class="social-icons pt-3">
+                          {% if user.instagram %}
+                            <li class='social-place pr-3'><a href="https://instagram.com.{{user.instagram}}"><i class="fa-brands fa-instagram fa-2x"></i></a></li>
+                          {% endif %}
+                          {% if user.Twitter %}
+                            <li class='social-place pr-3'><a href="https://twitter.com/{{user.Twitter}}"><i class="fa-brands fa-twitter fa-2x"></i></a></li>
+                          {% endif %}
+                          {% if user.Linkdin %}
+                            <li class='social-place pr-3'><a href="https://www.linkdin.com/groups/{{user.Linkdin}}"><i class="fa-brands fa-linkedin fa-2x"></i></a></li>
+                          {% endif %}
+                          {% if user.telegram %}
+                            <li class='social-place pr-3'><a href="https://te.me/{{user.telegram}}"><i class="fa-brands fa-telegram fa-2x"></i></a></li>
+                          {% endif %}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4 d-flex justify-content-center">
+            <div class="service-item">
+              {% trans "our rewards" %}
+              <div class="icon">
+                <i class="fa fa-gear"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  
+
+
+    <!-- Bootstrap core JavaScript -->
+
+
+
+    <!-- Additional Scripts -->
+
+
+
+{% endblock content %}

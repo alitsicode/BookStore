@@ -1,0 +1,262 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-06 12:58+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: .\models.py:11 .\models.py:61
+msgid "ip_address"
+msgstr "نشانی آی پی"
+
+#: .\models.py:14
+msgid "category"
+msgstr "دسته بندی "
+
+#: .\models.py:15
+msgid "cover"
+msgstr "تصویر"
+
+#: .\models.py:25
+msgid "Title"
+msgstr "نام"
+
+#: .\models.py:26
+msgid "Summary"
+msgstr "توضیحات"
+
+#: .\models.py:27
+msgid "Price"
+msgstr "قیمت"
+
+#: .\models.py:28
+msgid "Author"
+msgstr "نویسنده"
+
+#: .\models.py:29
+msgid "Page Count"
+msgstr "تعداد صفحه "
+
+#: .\models.py:30
+msgid "Cover"
+msgstr "تصویر"
+
+#: .\models.py:31
+msgid "views"
+msgstr "بازدید ها"
+
+#: .\models.py:32
+msgid "Category"
+msgstr "دسته بندی"
+
+#: .\models.py:33
+msgid "seller"
+msgstr "فروشنده"
+
+#: .\models.py:34 .\templates\pages\detail.html:167
+msgid "Information"
+msgstr "اطلاعات"
+
+#: .\models.py:35
+msgid "Created"
+msgstr "زمان ایجاد"
+
+#: .\models.py:36
+msgid "Edited"
+msgstr "زمان ویرایش"
+
+#: .\models.py:37
+msgid "exist"
+msgstr "وضعیت انبار"
+
+#: .\models.py:46 .\models.py:53
+msgid "user"
+msgstr "کاربر"
+
+#: .\models.py:47 .\models.py:54 .\models.py:60
+#: .\templates\pages\home.html:129
+msgid "book"
+msgstr "کتاب"
+
+#: .\models.py:48
+msgid "saved time"
+msgstr "زمان ذخیره شدن"
+
+#: .\models.py:55
+msgid "like time"
+msgstr "زمان لایک شدن"
+
+#: .\models.py:62
+msgid "timeview"
+msgstr "زمان بازدید"
+
+#: .\templates\pages\create.html:5
+msgid "Create Product"
+msgstr "ایجاد محصول"
+
+#: .\templates\pages\create.html:14
+msgid "create new product"
+msgstr "ایجاد محصول جدید"
+
+#: .\templates\pages\create.html:43
+msgid "Create"
+msgstr "ایجاد"
+
+#: .\templates\pages\delete.html:4 .\templates\pages\delete.html:13
+msgid "Delete"
+msgstr "حذف"
+
+#: .\templates\pages\delete.html:16
+msgid "Are you Sure to Delete"
+msgstr "از حذف مطمئنی"
+
+#: .\templates\pages\detail.html:61
+msgid "tooman"
+msgstr "تومان"
+
+#: .\templates\pages\detail.html:64
+msgid "Sizes"
+msgstr "سایز ها"
+
+#: .\templates\pages\detail.html:89
+msgid "Colors"
+msgstr "رنگبندی"
+
+#: .\templates\pages\detail.html:93
+msgid "Black"
+msgstr "مشکی"
+
+#: .\templates\pages\detail.html:97
+msgid "White"
+msgstr "سفید"
+
+#: .\templates\pages\detail.html:101
+msgid "Red"
+msgstr "قرمز"
+
+#: .\templates\pages\detail.html:105
+msgid "Blue"
+msgstr "آبی"
+
+#: .\templates\pages\detail.html:109
+msgid "Green"
+msgstr "سبز"
+
+#: .\templates\pages\detail.html:141
+msgid "Add To Cart"
+msgstr "افزودن به سبد خرید"
+
+#: .\templates\pages\detail.html:146
+msgid "Share on"
+msgstr "اشتراک گذاری در"
+
+#: .\templates\pages\detail.html:166
+msgid "Description"
+msgstr "توضیحات محصول"
+
+#: .\templates\pages\detail.html:168
+msgid "Reviews"
+msgstr "نظرات "
+
+#: .\templates\pages\detail.html:172
+msgid "book Description"
+msgstr "توضیحات محصول"
+
+#: .\templates\pages\detail.html:176
+msgid "Additional Information"
+msgstr "اطلاعات تکمیلی"
+
+#: .\templates\pages\detail.html:182
+msgid "Leave a review"
+msgstr "نظر خودتان را بنویسید"
+
+#: .\templates\pages\detail.html:183
+msgid "Your email address will not be published. Required fields are marked"
+msgstr "آدرس ایمیل شما نمایش داده نخواهد شد. فیلد های ستاره دار الزامی هستند"
+
+#: .\templates\pages\detail.html:202
+msgid "You May Also Like"
+msgstr "ممکن است دوست داشته باشید"
+
+#: .\templates\pages\home.html:6
+msgid "home page"
+msgstr "خانه"
+
+#: .\templates\pages\home.html:86
+msgid "Quality Product"
+msgstr "اطمینان کیفیت محصول"
+
+#: .\templates\pages\home.html:92
+msgid "Free Shipping"
+msgstr "ارسال رایگان"
+
+#: .\templates\pages\home.html:98
+msgid "14-Day Return"
+msgstr "ضمانت مرجوعی تا 14 روز"
+
+#: .\templates\pages\home.html:104
+msgid "24/7 Support"
+msgstr "پشتیبانی شبانه روزی"
+
+#: .\templates\pages\home.html:114
+msgid "Categories"
+msgstr "دسته بندی ها"
+
+#: .\templates\pages\home.html:174
+msgid "Recent Books"
+msgstr "کتاب های اخیر"
+
+#: .\templates\pages\list.html:7
+msgid "List Page"
+msgstr "لیست کتاب ها"
+
+#: .\templates\pages\list.html:20
+msgid "Filter by price"
+msgstr "فیلتر بر اساس قیمت"
+
+#: .\templates\pages\list.html:25
+msgid "All Price"
+msgstr "همه ی قیمت ها"
+
+#: .\templates\pages\list.html:58
+msgid "Filter by color"
+msgstr "فیلتر بر اساس رنگ"
+
+#: .\templates\pages\list.html:63
+msgid "All Color"
+msgstr "همه ی رنگ ها"
+
+#: .\templates\pages\list.html:96
+msgid "Filter by size"
+msgstr "فیلتر بر اساس سایز"
+
+#: .\templates\pages\list.html:101
+msgid "All Size"
+msgstr "همه ی سایز ها"
+
+#: .\templates\pages\update.html:4
+msgid "Update Product"
+msgstr "ویرایش محصول"
+
+#: .\templates\pages\update.html:12 .\templates\pages\update.html:41
+msgid "Update"
+msgstr "ویرایش"
+
+#: .\views.py:56 .\views.py:70
+msgid "your product successfuly add"
+msgstr "محصول با موفقیت ایجاد شد"
+
+#: .\views.py:79
+msgid "your product successfuly deleted"
+msgstr "محصول با موفقیت حذف شد"
