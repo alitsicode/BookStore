@@ -31,12 +31,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-SECRET_KEY = 'django-insecure-#xn*!*sq5sq)h$(luzaep%ujvi3!h8hf5z0()3=h_7pnto80uv'
-DEBUG = False
+SECRET_KEY = env("SECRET_KEY")
+DEBUG = env.bool("DEBUG")
 # SECRET_KEY = 'django-insecure-#xn*!*sq5sq)h$(luzaep%ujvi3!h8hf5z0()3=h_7pnto80uv'
 # DEBUG = True
 
-ALLOWED_HOSTS = ['bookstore-aliota.fandogh.cloud']
+ALLOWED_HOSTS = []
 
 
 # Application definition
