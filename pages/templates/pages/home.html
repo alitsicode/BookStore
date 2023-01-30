@@ -2,7 +2,6 @@
 {% load i18n %}
 {% load static %}
 {% load humanize %}
-{% load ratings %}
 {% block title %}{% trans "home page" %}{% endblock title %}
 
 {% block content %}
@@ -14,16 +13,6 @@
     <div class="container-fluid mb-3">
         <div class="row px-xl-5">
             <div class="col-lg-4">
-                {% for rate in toprate %}
-                    <div class="product-offer mb-30" style="height: 200px;">
-                        <img class="img-fluid" src="{{rate.cover.url}}" alt="book cover">
-                        <div class="offer-text">
-                            <h6 class="text-white text-uppercase">{{rate.ratings.count}} rate</h6>
-                            <h3 class="text-white mb-3">most rated last month</h3>
-                            <a href="{% url 'book_detail' rate.id %}" class="btn btn-primary">watch</a>
-                        </div>
-                    </div>
-                {% endfor %}
             </div>
             <div class="col-lg-4"></div>
             <div class="col-lg-4">
@@ -80,7 +69,7 @@
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">{% trans "Categories" %}</span></h2>
         <div class="row px-xl-5 pb-3">
             {% for category in categories %}
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 ">
                     <a class="text-decoration-none" href="{% url 'book_category' category.id %}">
                         <div class="cat-item d-flex align-items-center mb-4">
                             <div class="overflow-hidden" style="width: 100px; height: 100px;">
@@ -109,8 +98,9 @@
     <div class="container-fluid pt-5">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">{% trans "filters" %}</span></h2>
         <div class="row px-xl-5 pb-3">
-            <div class="bg-light px-2 py-4 mb-30">
-                <form class='col-lg-3 bg-secondary text-dark' method='GET' action="{% url 'filter_by_price' %}">
+            <div style='background-color:#414141;' class=" px-2 py-4 mb-30">
+                <h2 class='text-light pl-1'>Price :</h2>
+                <form style='border-right:3px solid;' class='col-lg-3 text-light' method='GET' action="{% url 'filter_by_price' %}">
                     <div class="custom-control custom-checkbox d-flex align-items-center justify-content-center mb-3">
                         <span><p>from :</p>
                             <span id="rangeValue">2000</span><span> T</span>
@@ -138,7 +128,7 @@
                         </span>                                       
                     </div>                        
                   
-                    <div class='text-center'>
+                    <div class='text-center pb-3'>
                         <button class='btn btn-primary'>search</button>
                     </div>
                 </form>
@@ -181,7 +171,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                     <div class="product-item bg-light mb-4">
                         <div class="product-img position-relative overflow-hidden">
-                            <img style='height:250px;' class="img-fluid w-100" src="{{book.cover.url}}" alt="book cover">
+                            <img style='height:280px;' class="img-fluid w-100" src="{{book.cover.url}}" alt="book cover">
                         </div>
                         <div class="text-center py-4">
                             <form class="py-2" action="{% url 'add_cart' book.id %}" method="POST">
@@ -203,9 +193,7 @@
                                     <a href="{% url 'book_detail' book.id %}"><h5>{{book.Price|intcomma}}</h5></a><h6 class="text-muted ml-2"></h6>
                                 {% endif %}                           
                             </div>
-                            <div class="d-flex align-items-center justify-content-center mb-1">
-                                {% ratings book %}
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

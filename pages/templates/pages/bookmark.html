@@ -1,7 +1,6 @@
 
 {% extends 'base.html' %}
 {% load static %}
-{% load ratings %}
 {% load humanize %}
 {% load i18n %}
 {% block title %}{% trans "bookmark Page" %}{% endblock title %}
@@ -68,7 +67,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
                             <div class="product-item bg-light mb-4">
                                 <div class="product-img position-relative overflow-hidden">
-                                    <img style='height:250px;' class="img-fluid w-100" src="{{book.books.cover.url}}" alt="book cover">
+                                    <img style='height:280px;' class="img-fluid w-100" src="{{book.books.cover.url}}" alt="book cover">
                                 </div>
                                 <div class="text-center py-3">
                                     <form class="py-2" action="{% url 'add_cart' book.books.id %}" method="POST">
@@ -90,9 +89,7 @@
                                             <h5>{{book.books.Price|intcomma}}</h5><h6 class="text-muted ml-2"></h6>
                                         {% endif %}
                                     </div>
-                                    <div class="d-flex align-items-center justify-content-center mb-1">
-                                        {% ratings book.books %}
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

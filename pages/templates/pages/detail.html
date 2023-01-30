@@ -13,7 +13,6 @@
 {% load social_share %}
 {% load humanize %}
 {% load i18n %}
-{% load ratings %}
 {% load comment_tags %}
 {% block title %}{{book.Title}}{% endblock title %}
 {% block content %}
@@ -52,11 +51,6 @@
             <div class="col-lg-7 h-auto mb-30">
                 <div class="h-100 bg-light p-30">
                     <h3>{{book.Title}}</h3>
-                    <div class="d-flex mb-3">
-                        <div class="text-primary mr-2">
-                            {% ratings book  %}
-                        </div>
-                    </div>
                     {% if book.price_with_discount %}
                         <h3 class="font-weight-semi-bold mb-4">{{book.price_with_discount|intcomma}} {% trans 'tooman' %}</h3>
                     {% else %}
@@ -68,7 +62,7 @@
                     {% if request.user.is_superuser %}
                         <a class='btn btn-danger rounded-pill' href="{% url 'book_delete' book.id %}">delete</a>
                     {% endif %}
-                    <p class="my-4">{{book.Summary|truncatewords:10}}</p>
+                    <p class="my-4">{{book.Summary|safe|truncatewords:10}}</p>
                     <p>seller : <a class='badge badge-warning' href="{% url 'book_seller' book.seller.id %}">{{book.seller}}</a></p>
                     <div class='d-inline-flex pb-3'>               
                         {% if besaved %}
@@ -130,7 +124,7 @@
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="tab-pane-1">
                             <h4 class="mb-3">{% trans "book Description" %}</h4>
-                            <p>{{book.Summary}}</p>
+                            <p>{{book.Summary|safe}}</p>
                         </div>
                         <div class="tab-pane fade" id="tab-pane-2">
                             <h4 class="mb-3">{% trans "Additional Information" %}</h4>

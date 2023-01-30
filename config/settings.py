@@ -31,12 +31,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-SECRET_KEY = env("DJANGO_SECRET_KEY")
-DEBUG = env.bool("DJANGO_DEBUG")
+SECRET_KEY = 'django-insecure-#xn*!*sq5sq)h$(luzaep%ujvi3!h8hf5z0()3=h_7pnto80uv'
+DEBUG = False
 # SECRET_KEY = 'django-insecure-#xn*!*sq5sq)h$(luzaep%ujvi3!h8hf5z0()3=h_7pnto80uv'
 # DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bookstore-aliota.fandogh.cloud']
 
 
 # Application definition
@@ -59,9 +59,9 @@ INSTALLED_APPS = [
     'allauth.account',
     'comment',
     'django_social_share',
-    'star_ratings',
     'crispy_forms',
     'widget_tweaks',
+    'ckeditor',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_URL = 'account_login'
@@ -106,13 +106,34 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+        
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'bookstore', 
+#         'USER': 'postgres',
+#         'PASSWORD': '1273922271Aa',
+#         'HOST': '127.0.0.1', 
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bookstore', 
+        'USER': 'postgres',
+        'PASSWORD': '1273922271Aa',
+        'HOST': '127.0.0.1', 
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -166,6 +187,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS=[str(BASE_DIR.joinpath('static'))]
+STATIC_ROOT=os.path.join(BASE_DIR,'static_root')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -173,7 +195,7 @@ STATICFILES_DIRS=[str(BASE_DIR.joinpath('static'))]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL='accounts.Customeuser'
 MEDIA_URL='/media/'
-MEDIA_ROOT=str(BASE_DIR.joinpath('media'))
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -193,7 +215,3 @@ ACCOUNT_EMAIL_VERIFICATION = "none"
 # EMAIL_USE_TLS = True
 # EMAIL_HOST_USER = 'ak2727027@gmail.com'
 # EMAIL_HOST_PASSWORD =  رمز سرویس دهنده ایمیل
-STAR_RATINGS_STAR_HEIGHT=20
-STAR_RATINGS_RERATE_SAME_DELETE = True
-STAR_RATINGS_RERATE=True
-STAR_RATINGS_ANONYMOUS = True

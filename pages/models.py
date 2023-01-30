@@ -3,9 +3,9 @@ from accounts.models import Customeuser
 from django.utils.html import format_html
 from django.contrib.contenttypes.fields import GenericRelation
 from comment.models import Comment
+from ckeditor.fields import RichTextField
 from django.utils.translation import gettext_lazy as _
 
-from star_ratings.models import Rating
 
 class IpAddress(models.Model):
     ip_address=models.GenericIPAddressField(verbose_name=_('ip_address'))
@@ -23,7 +23,7 @@ class book(models.Model):
         ('finish','finish'),
     )
     Title=models.CharField(_("Title"), max_length=50)
-    Summary=models.TextField(_("Summary"))
+    Summary=RichTextField()
     Price=models.BigIntegerField(_("Price"))
     price_with_discount=models.BigIntegerField(_("discount price"),null=True,blank=True)
     Author=models.CharField(_("Author"), max_length=50)
@@ -37,7 +37,6 @@ class book(models.Model):
     Updated=models.DateTimeField(_("Edited"), auto_now=True)
     exist=models.CharField(max_length=8,choices=exist,default='have',verbose_name=_('exist'))
     comments = GenericRelation(Comment)
-    ratings = GenericRelation(Rating, related_query_name='products')
     def cover_tag(self):
         return format_html('<img width=150px height=150px src="{}" />'. format(self.cover.url))
     def __str__(self):

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% load widget_tweaks %}
 {% load i18n %}
 {% block title %}{% trans "Update Product" %}{% endblock title %}
 
@@ -22,7 +23,7 @@
                     {{form.Price|as_crispy_field}}
                 </div>
                 <div class="col-md-12 pb-2">
-                    {{form.Summary|as_crispy_field}}
+                    {{form.Summary|add_class:"ckeditor"}}
                 </div>
                 <div class="col-md-6 ">
                     {{form.exist|as_crispy_field}}   
