@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-{% block title %} all orders {% endblock title %}
+{% load i18n %}
+{% block title %} {% trans "all orders" %} {% endblock title %}
 
 {% block content %}
     <div class='pl-3'>
@@ -7,10 +8,10 @@
             {% for order in object_list %}
                 <div class="card col-lg-3 mr-1 text-center">
                     <div class="card-body">
-                    <h5 class="card-title">Order {{order.id}}</h5>
-                    <p class="card-text">You can pay anytime you want </p>
-                    <a href="{% url 'order_detail' order.id %}" class="btn btn-primary">watch</a>
-                    <a href="{% url 'order_delete' order.id %}" class="btn btn-danger">Delete</a>
+                    <h5 class="card-title">{% trans "Order" %} {{order.id}}</h5>
+                    <p class="card-text">{% trans "You can pay anytime you want" %} </p>
+                    <a href="{% url 'order_detail' order.id %}" class="btn btn-primary">{% trans "watch" %}</a>
+                    <a href="{% url 'order_delete' order.id %}" class="btn btn-danger">{% trans "Delete" %}</a>
                     </div>
               </div>
             {% endfor %}

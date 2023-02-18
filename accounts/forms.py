@@ -5,7 +5,7 @@ from django import forms
 class customusercreationform(UserCreationForm):
     class Meta:
         model=Customeuser
-        fields=UserCreationForm.Meta.fields + ('age','avatar')
+        fields=UserCreationForm.Meta.fields + ('age','avatar','email','role')
 
 class customuserchangeform(UserChangeForm):
     class Meta:

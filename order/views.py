@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.views import View
 import json
 from .mixins import deletemixin
@@ -11,10 +12,13 @@ import requests
 # Create your views here.
 from cart.cart import Cart
 from django.views import generic
-from .models import Order,OrderItem
+from .models import Order,OrderItem,OrderInfo
 from django.urls import reverse_lazy
 
+# list of user's open orders
 class UserOrders(LoginRequiredMixin,generic.ListView):
+	template_name='order/listorder.html'
+
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
 		context["cart"] = Cart(self.request)
@@ -23,8 +27,8 @@ class UserOrders(LoginRequiredMixin,generic.ListView):
 	def get_queryset(self):
 		object_list = Order.objects.filter(user=self.request.user).filter(paid=False) 
 		return object_list
-	template_name='order/listorder.html'
 
+# delete order
 class DeleteOrder(deletemixin,LoginRequiredMixin,generic.DeleteView):
 	model=Order
 	template_name='order/deleteorder.html'
@@ -34,7 +38,7 @@ class DeleteOrder(deletemixin,LoginRequiredMixin,generic.DeleteView):
 		messages.error(self.request,_("your Order successfuly deleted"),'danger')
 		return super().form_valid(form)
 
-
+# detail of each user's orders
 class OrderDetailView(LoginRequiredMixin, View):
 
 	def get(self, request, order_id):
@@ -44,17 +48,34 @@ class OrderDetailView(LoginRequiredMixin, View):
 		else:
 			return Http404('you cant see people order')
 
-
-class OrderCreateView(LoginRequiredMixin, View):
-	def get(self, request):
-		cart = Cart(request)
-		order = Order.objects.create(user=request.user)
+# create order
+@login_required
+def OrderCreateView(request):
+	cart = Cart(request)
+	if request.method=='POST':
+		order = Order.objects.create(user=request.user,info=request.user.orderinfo.last())
 		for item in cart:
 			OrderItem.objects.create(order=order, product=item['product_obj'], price=item['product_obj'].Price, quantity=item['quantity'])
 		cart.clear()
+		messages.success(request,_("your order successfuly created"),'success')
 		return redirect('order_detail', order.id)
+	info = OrderInfo.objects.filter(user=request.user).last()
+	return render(request,'order/order_create.html', {'infos': info,})
+	
 
+# user information to recieve product
+class OrderInfoCreate(LoginRequiredMixin,generic.CreateView):
+	model=OrderInfo
+	template_name='order/info.html'
+	success_url=reverse_lazy('cart_view')
+	fields=['name','last_name','address','phone_number','postal_code']
 
+	def form_valid(self,form):
+		instance=form.save(commit=False)
+		instance.user=self.request.user
+		instance.save()
+		messages.success(self.request,_("your recieve info successfuly add"),'success')
+		return super().form_valid(form)
 
 # sand box mode
 # MERCHANT = 'ABFGbdhttyifkddfhrBFShggklerigoFJnfI'
@@ -67,8 +88,10 @@ ZP_API_REQUEST = "https://api.zarinpal.com/pg/v4/payment/request.json"
 ZP_API_VERIFY = "https://api.zarinpal.com/pg/v4/payment/verify.json"
 ZP_API_STARTPAY = "https://www.zarinpal.com/pg/StartPay/{authority}"
 description = "توضیحات مربوط به تراکنش را در این قسمت وارد کنید"
+CallbackURL = 'http://localhost:8000/verify/'
 
 
+# gateway to pay
 class OrderPayView(LoginRequiredMixin, View):
 	def get(self, request, order_id):
 		order = Order.objects.get(id=order_id)
@@ -89,6 +112,7 @@ class OrderPayView(LoginRequiredMixin, View):
 			e_message = req.json()['errors']['message']
 			return HttpResponse(f"Error code: {e_code}, Error Message: {e_message}")
 
+# after pay successfuly
 class OrderVerifyView(LoginRequiredMixin, View):
 	def get(self, request):
 		order_id = request.session['order_pay']['order_id']

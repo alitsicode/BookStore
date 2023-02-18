@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}recieve info{% endblock title %}
+
+{% block content %}
+    <form class='ml-4' action="" method='POST'>
+        <h2 class="text-center bg-danger text-light">edit recieve information</h2>
+        {% csrf_token %}
+        {{form|crispy}}
+        <button class='btn btn-success' type='submit'>done</button>
+    </form>
+{% endblock content %}

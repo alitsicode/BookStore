@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Sign Up 10</title>
+    <title>{% trans "Sign Up" %} </title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -28,7 +28,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-6 text-center mb-5">
-            <h2 class="heading-section">Sign Up #10</h2>
+            <h2 class="heading-section">{% trans "Sign Up" %} #10</h2>
           </div>
         </div>
         <div class="row justify-content-center">
@@ -39,7 +39,7 @@
                 style="background-image: url({% static 'img/january-books-1579037900.png' %})"
               >
                 <div class="text w-100">
-                  <h2 class="mb-4">Welcome to signup form</h2>
+                  <h2 class="mb-4">{% trans "Welcome to signup form" %}</h2>
                   <p>
                     Far far away, behind the word mountains, far from the
                     countries Vokalia and Consonantia, there live the blind
@@ -48,42 +48,42 @@
                 </div>
               </div>
               <div class="login-wrap p-4 p-md-5">
-                <h3 class="mb-3">Create an account</h3>
+                <h3 class="mb-3">{% trans "Create an account" %}</h3>
                 <form action='#' method='POST' class="signup-form">
 					        {% csrf_token %}
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group d-flex align-items-center">
                         <i class="fa-solid fa-users"></i>
-                        <label class="label ml-1" for="name">username</label>
+                        <label class="label ml-1" for="name">{% trans "username" %}</label>
                         {{form.username|add_class:'form-control'}}
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group d-flex align-items-center">
                         <i class="fa-solid fa-envelope"></i>
-                        <label class="label ml-1" for="email">Email Address</label>
+                        <label class="label ml-1" for="email">{% trans "Email Address" %}</label>
                         {{form.email|add_class:'form-control'}}
                       </div>
                     </div>                   
                     <div class="col-md-12">
                       <div class="form-group d-flex align-items-center">
                         <i class="fa-solid fa-key"></i>
-                        <label class="label ml-1" for="password">Password</label>
+                        <label class="label ml-1" for="password">{% trans "Password" %}</label>
                         {{form.password1|add_class:'form-control'}}
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group d-flex align-items-center">
                         <i class="fa-solid fa-key"></i>
-                        <label class="label ml-1" for="website">password (again)</label>
+                        <label class="label ml-1" for="website">{% trans "password (again)" %}</label>
                         {{form.password2|add_class:'form-control'}}
                       </div>
                     </div>
                     <div class="col-md-12 text-center">
                       <div class="form-group">
                         <button type="submit" class="btn btn-secondary submit p-3">
-                          Create an account
+                          {% trans "Create an account" %}
                         </button>
                       </div>
                     </div>
@@ -93,7 +93,7 @@
                   <p class="or">
                     <span>or</span>
                   </p>
-                  <p class="mb-3 text-center">Signup with this services</p>
+                  <p class="mb-3 text-center">{% trans "Signup with this services" %}</p>
                   <p class="social-media d-flex justify-content-center">
                     <a
                       href="#"
@@ -114,7 +114,7 @@
                 </div>
                 <div class="w-100 text-center">
                   <p class="mt-4">
-                    I'm already a member! <a href="{% url 'account_login' %}">Login</a>
+                    {% trans "I'm already a member!" %} <a href="{% url 'account_login' %}">{% trans "Login" %}</a>
                   </p>
                 </div>
               </div>

@@ -17,7 +17,8 @@ def Home(request):
     home_book=book.objects.all().order_by('-Created')[:6]
     last_month=timezone.now() - timedelta(days=30)
     topview=book.objects.all().annotate(count=Count('hits',filter=Q(hitsfilter__timecreated__gt=last_month))).order_by('-count','-Created')[:2]
-    return render(request, 'pages/home.html',context={'home_book':home_book,'topview':topview})
+    hot_product=book.objects.filter(exist = 'have').annotate(count=Count('comments',filter=Q(comments__posted__gt=last_month))).order_by('-count','-Created')[:2]
+    return render(request, 'pages/home.html',context={'home_book':home_book,'topview':topview,'hot_product':hot_product})
 
 class ListBook(generic.ListView):
     queryset=book.objects.all().order_by('-Created')

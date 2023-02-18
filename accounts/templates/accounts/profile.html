@@ -25,6 +25,9 @@
                       <form enctype='multipart/form-data' action="" method='POST'>
                         {% csrf_token %}
                         <ul class="list-group list-group-unbordered mb-3 ">
+                            <li class="list-group-item text-center ">
+                                <a class='badge badge-warning' href="{% url 'account_change_password' %}">{% trans "Change Password" %}</a>
+                            </li>
                             <li class="list-group-item ">
                                 {{form.first_name|as_crispy_field}}
                             </li>

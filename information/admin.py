@@ -4,7 +4,7 @@ from .models import About_Us,Contact_Us
 
 @admin.register(About_Us)
 class AboutusAdmin(admin.ModelAdmin):
-    list_display=['shop_name','work_image_tag']
+    list_display=['shop_name','work_image_tag','address','phone','email']
 
 @admin.register(Contact_Us)
 class ContactusAdmin(admin.ModelAdmin):

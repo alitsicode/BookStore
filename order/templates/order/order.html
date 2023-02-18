@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}order page{% endblock title %}
+{% block title %}{% trans "order page" %} {% endblock title %}
 {% block content %}
     <div class='text-center'>  
-        <h3 class='mb-4'>Your Checkout</h3>
+        <h3 class='mb-4'>{% trans "Your Checkout" %} </h3>
         <div class="container-fluid">
             <div class="row px-xl-5">
                 {% comment %} {% for item in order.items.all %}
@@ -26,6 +26,7 @@
                                 <th>{% trans "Books" %}</th>
                                 <th>{% trans "Quantity" %}</th>
                                 <th>{% trans "Price" %}</th>
+                                <th>{% trans "info" %}</th>
                             </tr>
                         </thead>
                         <tbody class="align-middle">
@@ -38,6 +39,13 @@
                                     {% else %}
                                         <td class="align-middle">{{item.product.Price}}</td>
                                     {% endif %}
+                                    <td class="align-middle">
+                                        
+                                        {% comment %} user's information to recieve product {% endcomment %}
+                                        <span>Address : {{request.user.orderinfo.last.address}}</span><br>
+                                        <span>name : {{request.user.orderinfo.last.name}}</span><br>
+                                        <span>phone : {{request.user.orderinfo.last.phone_number}}</span><br>
+                                    </td>
                                 </tr>
                             {% endfor %}
                         </tbody>
@@ -46,7 +54,7 @@
             </div>
         </div>
         
-        <p class='h3'>Total Price: {{ order.get_total_price }}</p>
-        <a style='border-radius:7px;' href="{% url 'order_pay' order.id %}" class="btn btn-primary px-4 py-2">Pay</a>
+        <p class='h3'>{% trans "Total Price" %} : {{ order.get_total_price }}</p>
+        <a style='border-radius:7px;' href="{% url 'order_pay' order.id %}" class="btn btn-primary px-4 py-2">{% trans "Pay" %} </a>
     </div>
 {% endblock %}

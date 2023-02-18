@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-06 12:58+0330\n"
+"POT-Creation-Date: 2023-02-06 01:10+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
 #: .\models.py:11 .\models.py:61
 msgid "ip_address"
 msgstr "نشانی آی پی"
@@ -32,51 +33,53 @@ msgstr "تصویر"
 msgid "Title"
 msgstr "نام"
 
-#: .\models.py:26
-msgid "Summary"
-msgstr "توضیحات"
-
-#: .\models.py:27
+#: .\models.py:27 .\templates\pages\home.html:111
 msgid "Price"
 msgstr "قیمت"
 
 #: .\models.py:28
+msgid "discount price"
+msgstr "قیمت با تخفیف"
+
+#: .\models.py:29
 msgid "Author"
 msgstr "نویسنده"
 
-#: .\models.py:29
+#: .\models.py:30
 msgid "Page Count"
 msgstr "تعداد صفحه "
 
-#: .\models.py:30
+#: .\models.py:31
 msgid "Cover"
 msgstr "تصویر"
 
-#: .\models.py:31
+#: .\models.py:32 .\templates\pages\home.html:32
 msgid "views"
 msgstr "بازدید ها"
 
-#: .\models.py:32
+#: .\models.py:33
 msgid "Category"
 msgstr "دسته بندی"
 
-#: .\models.py:33
+#: .\models.py:34 .\templates\pages\bookmark.html:38
+#: .\templates\pages\detail.html:66 .\templates\pages\home.html:175
+#: .\templates\pages\list.html:89
 msgid "seller"
 msgstr "فروشنده"
 
-#: .\models.py:34 .\templates\pages\detail.html:167
+#: .\models.py:35 .\templates\pages\detail.html:121
 msgid "Information"
 msgstr "اطلاعات"
 
-#: .\models.py:35
+#: .\models.py:36
 msgid "Created"
 msgstr "زمان ایجاد"
 
-#: .\models.py:36
+#: .\models.py:37
 msgid "Edited"
 msgstr "زمان ویرایش"
 
-#: .\models.py:37
+#: .\models.py:38
 msgid "exist"
 msgstr "وضعیت انبار"
 
@@ -84,8 +87,7 @@ msgstr "وضعیت انبار"
 msgid "user"
 msgstr "کاربر"
 
-#: .\models.py:47 .\models.py:54 .\models.py:60
-#: .\templates\pages\home.html:129
+#: .\models.py:47 .\models.py:54 .\models.py:60 .\templates\pages\home.html:93
 msgid "book"
 msgstr "کتاب"
 
@@ -101,15 +103,19 @@ msgstr "زمان لایک شدن"
 msgid "timeview"
 msgstr "زمان بازدید"
 
-#: .\templates\pages\create.html:5
+#: .\templates\pages\bookmark.html:6
+msgid "bookmark Page"
+msgstr "صفحه ذخیره ها"
+
+#: .\templates\pages\create.html:6
 msgid "Create Product"
 msgstr "ایجاد محصول"
 
-#: .\templates\pages\create.html:14
+#: .\templates\pages\create.html:15
 msgid "create new product"
 msgstr "ایجاد محصول جدید"
 
-#: .\templates\pages\create.html:43
+#: .\templates\pages\create.html:51
 msgid "Create"
 msgstr "ایجاد"
 
@@ -119,144 +125,180 @@ msgstr "حذف"
 
 #: .\templates\pages\delete.html:16
 msgid "Are you Sure to Delete"
-msgstr "از حذف مطمئنی"
+msgstr "از حذف مطمئنید"
 
-#: .\templates\pages\detail.html:61
+#: .\templates\pages\detail.html:55 .\templates\pages\detail.html:57
 msgid "tooman"
 msgstr "تومان"
 
-#: .\templates\pages\detail.html:64
-msgid "Sizes"
-msgstr "سایز ها"
+#: .\templates\pages\detail.html:60
+#, fuzzy
+#| msgid "Update"
+msgid "update"
+msgstr "ویرایش"
 
-#: .\templates\pages\detail.html:89
-msgid "Colors"
-msgstr "رنگبندی"
+#: .\templates\pages\detail.html:63
+#, fuzzy
+#| msgid "Delete"
+msgid "delete"
+msgstr "حذف"
 
-#: .\templates\pages\detail.html:93
-msgid "Black"
-msgstr "مشکی"
-
-#: .\templates\pages\detail.html:97
-msgid "White"
-msgstr "سفید"
-
-#: .\templates\pages\detail.html:101
-msgid "Red"
-msgstr "قرمز"
-
-#: .\templates\pages\detail.html:105
-msgid "Blue"
-msgstr "آبی"
-
-#: .\templates\pages\detail.html:109
-msgid "Green"
-msgstr "سبز"
-
-#: .\templates\pages\detail.html:141
+#: .\templates\pages\detail.html:95
 msgid "Add To Cart"
 msgstr "افزودن به سبد خرید"
 
-#: .\templates\pages\detail.html:146
+#: .\templates\pages\detail.html:100
 msgid "Share on"
 msgstr "اشتراک گذاری در"
 
-#: .\templates\pages\detail.html:166
+#: .\templates\pages\detail.html:120
 msgid "Description"
 msgstr "توضیحات محصول"
 
-#: .\templates\pages\detail.html:168
+#: .\templates\pages\detail.html:122
 msgid "Reviews"
 msgstr "نظرات "
 
-#: .\templates\pages\detail.html:172
+#: .\templates\pages\detail.html:126
 msgid "book Description"
 msgstr "توضیحات محصول"
 
-#: .\templates\pages\detail.html:176
+#: .\templates\pages\detail.html:130
 msgid "Additional Information"
 msgstr "اطلاعات تکمیلی"
 
-#: .\templates\pages\detail.html:182
+#: .\templates\pages\detail.html:136
 msgid "Leave a review"
 msgstr "نظر خودتان را بنویسید"
 
-#: .\templates\pages\detail.html:183
+#: .\templates\pages\detail.html:137
 msgid "Your email address will not be published. Required fields are marked"
 msgstr "آدرس ایمیل شما نمایش داده نخواهد شد. فیلد های ستاره دار الزامی هستند"
 
-#: .\templates\pages\detail.html:202
-msgid "You May Also Like"
-msgstr "ممکن است دوست داشته باشید"
-
-#: .\templates\pages\home.html:6
+#: .\templates\pages\home.html:5
 msgid "home page"
 msgstr "خانه"
 
-#: .\templates\pages\home.html:86
+#: .\templates\pages\home.html:20
+msgid "comments"
+msgstr "کامنت ها"
+
+#: .\templates\pages\home.html:21
+msgid "most comment last month"
+msgstr "بیشترین کامنت ماه اخیر"
+
+#: .\templates\pages\home.html:22 .\templates\pages\home.html:34
+msgid "watch"
+msgstr "بیشتر"
+
+#: .\templates\pages\home.html:33
+msgid "most view last month"
+msgstr "بیشترین بازدید ماه اخیر"
+
+#: .\templates\pages\home.html:50
 msgid "Quality Product"
 msgstr "اطمینان کیفیت محصول"
 
-#: .\templates\pages\home.html:92
+#: .\templates\pages\home.html:56
 msgid "Free Shipping"
 msgstr "ارسال رایگان"
 
-#: .\templates\pages\home.html:98
+#: .\templates\pages\home.html:62
 msgid "14-Day Return"
 msgstr "ضمانت مرجوعی تا 14 روز"
 
-#: .\templates\pages\home.html:104
+#: .\templates\pages\home.html:68
 msgid "24/7 Support"
 msgstr "پشتیبانی شبانه روزی"
 
-#: .\templates\pages\home.html:114
+#: .\templates\pages\home.html:78
 msgid "Categories"
 msgstr "دسته بندی ها"
 
-#: .\templates\pages\home.html:174
+#: .\templates\pages\home.html:108
+msgid "filters"
+msgstr "فیلتر ها"
+
+#: .\templates\pages\home.html:114 .\templates\pages\list.html:23
+msgid "from"
+msgstr "از"
+
+#: .\templates\pages\home.html:128 .\templates\pages\list.html:37
+msgid "to"
+msgstr "تا"
+
+#: .\templates\pages\home.html:143 .\templates\pages\list.html:52
+#, fuzzy
+#| msgid "user"
+msgid "search"
+msgstr "کاربر"
+
+#: .\templates\pages\home.html:155
 msgid "Recent Books"
 msgstr "کتاب های اخیر"
 
-#: .\templates\pages\list.html:7
+#: .\templates\pages\list.html:6
 msgid "List Page"
 msgstr "لیست کتاب ها"
 
-#: .\templates\pages\list.html:20
+#: .\templates\pages\list.html:19
 msgid "Filter by price"
 msgstr "فیلتر بر اساس قیمت"
 
-#: .\templates\pages\list.html:25
-msgid "All Price"
-msgstr "همه ی قیمت ها"
-
-#: .\templates\pages\list.html:58
-msgid "Filter by color"
-msgstr "فیلتر بر اساس رنگ"
-
-#: .\templates\pages\list.html:63
-msgid "All Color"
-msgstr "همه ی رنگ ها"
-
-#: .\templates\pages\list.html:96
-msgid "Filter by size"
-msgstr "فیلتر بر اساس سایز"
-
-#: .\templates\pages\list.html:101
-msgid "All Size"
-msgstr "همه ی سایز ها"
-
-#: .\templates\pages\update.html:4
+#: .\templates\pages\update.html:5
 msgid "Update Product"
 msgstr "ویرایش محصول"
 
-#: .\templates\pages\update.html:12 .\templates\pages\update.html:41
+#: .\templates\pages\update.html:13 .\templates\pages\update.html:47
 msgid "Update"
 msgstr "ویرایش"
 
-#: .\views.py:56 .\views.py:70
+#: .\views.py:61 .\views.py:75
 msgid "your product successfuly add"
 msgstr "محصول با موفقیت ایجاد شد"
 
-#: .\views.py:79
+#: .\views.py:84
 msgid "your product successfuly deleted"
 msgstr "محصول با موفقیت حذف شد"
+
+#~ msgid "Summary"
+#~ msgstr "توضیحات"
+
+#~ msgid "Sizes"
+#~ msgstr "سایز ها"
+
+#~ msgid "Colors"
+#~ msgstr "رنگبندی"
+
+#~ msgid "Black"
+#~ msgstr "مشکی"
+
+#~ msgid "White"
+#~ msgstr "سفید"
+
+#~ msgid "Red"
+#~ msgstr "قرمز"
+
+#~ msgid "Blue"
+#~ msgstr "آبی"
+
+#~ msgid "Green"
+#~ msgstr "سبز"
+
+#~ msgid "You May Also Like"
+#~ msgstr "ممکن است دوست داشته باشید"
+
+#~ msgid "All Price"
+#~ msgstr "همه ی قیمت ها"
+
+#~ msgid "Filter by color"
+#~ msgstr "فیلتر بر اساس رنگ"
+
+#~ msgid "All Color"
+#~ msgstr "همه ی رنگ ها"
+
+#~ msgid "Filter by size"
+#~ msgstr "فیلتر بر اساس سایز"
+
+#~ msgid "All Size"
+#~ msgstr "همه ی سایز ها"

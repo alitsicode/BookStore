@@ -19,6 +19,11 @@ class ContactUs(generic.CreateView):
     template_name='information/contactus.html'
     fields=['text']
     success_url=reverse_lazy('book_home')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["our_info"] = About_Us.objects.last()
+        return context
+    
     def form_valid(self, form):
         instance=form.save(commit=False)
         instance.user=self.request.user

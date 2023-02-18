@@ -9,10 +9,10 @@ class customuseradmin(UserAdmin):
     form=customuserchangeform
     model=Customeuser
     fieldsets=UserAdmin.fieldsets+(
-        (None,{'fields':('age','is_seller','avatar','phone','bio','shop_address','Linkdin','instagram','telegram','Twitter')},),
+        (None,{'fields':('age','is_seller','role','avatar','phone','bio','shop_address','Linkdin','instagram','telegram','Twitter')},),
     )
     add_fieldsets=UserAdmin.add_fieldsets+(
-        (None,{'fields':('age','is_seller','avatar','phone','bio','shop_address','Linkdin','instagram','telegram','Twitter')},),
+        (None,{'fields':('email','age','is_seller','role','avatar','phone','bio','shop_address','Linkdin','instagram','telegram','Twitter')},),
     )
     
 admin.site.register(Customeuser,customuseradmin)

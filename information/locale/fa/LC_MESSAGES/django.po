@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-05 17:28+0330\n"
+"POT-Creation-Date: 2023-02-06 01:06+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,59 +16,68 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-#: .\models.py:7
+
+#: .\models.py:8
 msgid "Shop_name"
 msgstr "نام فروشگاه"
 
-#: .\models.py:8
+#: .\models.py:9
+msgid "address"
+msgstr "آدرس"
+
+#: .\models.py:10
+msgid "email"
+msgstr "ایمیل"
+
+#: .\models.py:11
 msgid "description"
 msgstr "توضیحات"
 
-#: .\models.py:9
+#: .\models.py:12
 msgid "Phone number"
 msgstr "شماره تلفن"
 
-#: .\models.py:10
+#: .\models.py:13
 msgid "telegram"
 msgstr "تلگرام"
 
-#: .\models.py:11
+#: .\models.py:14
 msgid "instagram"
 msgstr "اینستاگرام"
 
-#: .\models.py:12
+#: .\models.py:15
 msgid "Linkdin"
 msgstr "لینکداین"
 
-#: .\models.py:13
+#: .\models.py:16
 msgid "whatsapp"
 msgstr "واتساپ"
 
-#: .\models.py:14
+#: .\models.py:17
 msgid "reward"
 msgstr "دستاورد ها"
 
-#: .\models.py:15
+#: .\models.py:18
 msgid "inventors"
-msgstr ""
+msgstr "سازندگان"
 
-#: .\models.py:16
+#: .\models.py:19
 msgid "Images"
 msgstr "تصاویر"
 
-#: .\models.py:22
+#: .\models.py:25
 msgid "About u"
 msgstr "درباره ما"
 
-#: .\models.py:25
+#: .\models.py:28
 msgid "User"
 msgstr "کاربر"
 
-#: .\models.py:26
+#: .\models.py:29
 msgid "your text"
 msgstr "متن شما"
 
-#: .\models.py:27
+#: .\models.py:30
 msgid "created"
 msgstr "زمان ایجاد"
 
@@ -80,13 +89,17 @@ msgstr "درباره ما"
 msgid "What we do?"
 msgstr "فعالیت ما"
 
-#: .\templates\information\aboutus.html:55
+#: .\templates\information\aboutus.html:30
+msgid "Our Social"
+msgstr "شبکه های اجتماعی ما"
+
+#: .\templates\information\aboutus.html:56
 msgid "Our Team Members"
 msgstr "اعضای تیم ما"
 
-#: .\templates\information\aboutus.html:103
-msgid "our rewards"
-msgstr "دستاورد های ما"
+#: .\templates\information\aboutus.html:71
+msgid "i work here"
+msgstr "اینجا کار میکنم"
 
 #: .\templates\information\contactus.html:6
 #: .\templates\information\contactus.html:15
@@ -100,3 +113,6 @@ msgstr "پیامی بنویسید"
 #: .\templates\information\contactus.html:27
 msgid "Send Message"
 msgstr "ارسال پیام"
+
+#~ msgid "our rewards"
+#~ msgstr "دستاورد های ما"

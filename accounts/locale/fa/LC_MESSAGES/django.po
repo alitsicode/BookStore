@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-05 16:29+0330\n"
+"POT-Creation-Date: 2023-02-06 01:02+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-#: .\models.py:21
+
+#: .\models.py:9
+#, fuzzy
+#| msgid "Profile"
+msgid "role"
+msgstr "پروفایل"
+
+#: .\models.py:22
 msgid "CustomeUser"
 msgstr "کاربران"
 
@@ -32,6 +39,14 @@ msgstr "پروفایل من"
 msgid "Hi"
 msgstr "خوش اومدی"
 
-#: .\templates\accounts\profile.html:57
+#: .\templates\accounts\profile.html:29
+msgid "Change Password"
+msgstr "تغییر رمز"
+
+#: .\templates\accounts\profile.html:60
 msgid "Save"
 msgstr "ذخیره"
+
+#: .\views.py:17
+msgid "your profile successfuly updated"
+msgstr "پروفایل شما با موفقیت تغییر کرد"

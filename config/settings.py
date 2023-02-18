@@ -31,8 +31,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-SECRET_KEY = env("SECRET_KEY")
-DEBUG = env.bool("DEBUG")
+SECRET_KEY = 'django-insecure-#xn*!*sq5sq)h$(luzaep%ujvi3!h8hf5z0()3=h_7pnto80uv'
+DEBUG = True
 # SECRET_KEY = 'django-insecure-#xn*!*sq5sq)h$(luzaep%ujvi3!h8hf5z0()3=h_7pnto80uv'
 # DEBUG = True
 
@@ -94,6 +94,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'pages.context_processor.show_category',
+                'information.context_processor.show_info',
                 'cart.context_processors.cart',
             ],
         },
@@ -161,25 +162,25 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'templates', 'locale'),
 )
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_L18N = True
-
-USE_TZ = True
-
-# LANGUAGE_CODE = 'fa'
-
-# TIME_ZONE = 'Asia/Tehran'
+# TIME_ZONE = 'UTC'
 
 # USE_I18N = True
 
 # USE_L18N = True
 
 # USE_TZ = True
+
+LANGUAGE_CODE = 'fa'
+
+TIME_ZONE = 'Asia/Tehran'
+
+USE_I18N = True
+
+USE_L18N = True
+
+USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)

@@ -18,11 +18,11 @@
                 <!-- Price Start -->
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">{% trans "Filter by price" %}</span></h5>
                 <div style='background-color:#414141;' class=" px-2 py-4 mb-30 text-light">
-                    <form method='GET' action="{% url 'filter_by_price' %}">
+                    <form class='col-lg-12 col-4 border-right' method='GET' action="{% url 'filter_by_price' %}">
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-center mb-3">
-                            <span><p>from :</p>
+                            <span><p>{% trans "from" %} :</p>
                                 <span id="rangeValue">2000</span><span> T</span>
-                                <input class="form-range" name="price1" type="range" min="2000" max="300000" value='2000' onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)">
+                                <input class="form-range" name="price1" type="range" min="2000" max="300000" value='2000' step='1000' onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)">
                                 {% comment %} <select name="price1">
                                     <option value='2000'>2000</option>
                                     <option value='4000'>4000</option>
@@ -33,9 +33,9 @@
                             </span>                                      
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-center mb-3">
-                            <span><p>to :</p>
+                            <span><p>{% trans "to" %} :</p>
                                 <span id="rangeValue2">2000</span><span> T</span>
-                                <input name="price2" class="form-range" type="range" min="2000" max="300000" value='2000' onChange="rangeSlide2(this.value)" onmousemove="rangeSlide2(this.value)">
+                                <input name="price2" class="form-range" type="range" min="2000" max="300000" value='2000' step='1000' onChange="rangeSlide2(this.value)" onmousemove="rangeSlide2(this.value)">
                                 {% comment %} <select name="price2">
                                     <option value='4000'>4000</option>
                                     <option value='8000'>8000</option>
@@ -47,7 +47,7 @@
                         </div>                        
                       
                         <div class='text-center'>
-                            <button class='btn btn-primary'>search</button>
+                            <button class='btn btn-primary'>{% trans "search" %}</button>
                         </div>
                     </form>
                 </div>
@@ -68,23 +68,23 @@
             <div class="col-lg-9 col-md-8">
                 <div class="row pb-3">
                     {% for book in object_list %}
-                        <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
+                        <div class="col-lg-4 col-md-6 col-6 pb-1">
                             <div class="product-item bg-light mb-4">
-                                <div class="product-img position-relative overflow-hidden">
-                                    <img style='height:280px;' class="img-fluid w-100" src="{{book.cover.url}}" alt="book cover">
+                                <div class="product-img position-relative overflow-hidden text-center">
+                                    <img style='height:280px;width:280px;' class="img-fluid" src="{{book.cover.url}}" alt="book cover">
                                 </div>
                                 <div class="text-center py-3">
                                     <form class="py-2" action="{% url 'add_cart' book.id %}" method="POST">
                                         {% csrf_token %}
                                         <input name="quantity" type="hidden" value="1">
                                         <div>
-                                            <button class='btn btn-warning' type="submit">
+                                            <button class='btn btn-warning rounded' type="submit">
                                                 <i class="fa fa-shopping-cart"></i>
                                             </button>
                                         </div>
                                     </form>
                                     <a class="h6 text-decoration-none text-truncate" href="{% url 'book_detail' book.id %}">{{book.Title}}</a><br>
-                                    <p>seller : <a class='badge badge-warning' href="{% url 'book_seller' book.seller.id %}">{{book.seller}}</a></p>
+                                    <p>{% trans "seller" %} : <a class='badge badge-warning' href="{% url 'book_seller' book.seller.id %}">{{book.seller}}</a></p>
                                     <div class="d-flex align-items-center justify-content-center mt-2">
                                         {% comment %} add price with discount by if and else tag {% endcomment %}
                                         {% if book.price_with_discount %}

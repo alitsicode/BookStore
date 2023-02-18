@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-06 15:15+0330\n"
+"POT-Creation-Date: 2023-02-06 01:12+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\403.html:12 .\404.html:12 .\500.html:12
+msgid "Error"
+msgstr "خطا"
+
 #: .\403.html:154
 msgid "Permission Denied"
 msgstr "دسترسی غیر مجاز"
@@ -36,92 +41,231 @@ msgstr "صفحه ای یافت نشد !"
 msgid ""
 "The page you are looking for might have been removed had its name changed or "
 "is temporarily unavailable."
-msgstr "صفحه ای که به دنبال آن هستید ممکن است حذف شده یا آدرس آن تغییر کرده باشد"
+msgstr ""
+"صفحه ای که به دنبال آن هستید ممکن است حذف شده یا آدرس آن تغییر کرده باشد"
 
 #: .\500.html:154
 msgid "Server Error !"
-msgstr "ارور سرور !"
+msgstr "خطا سرور !"
 
 #: .\500.html:155
 msgid "Sorry but the server is break done !"
 msgstr "متاسفیم ولی سرور موقتا از دسترس خارج شده است"
 
-#: .\base.html:52
-msgid "About"
-msgstr "درباره ما"
+#: .\account\email.html:4
+msgid "Enter Email"
+msgstr "ایمیل وارد کنید"
 
-#: .\base.html:53 .\base.html:142
-msgid "Contact"
-msgstr "ارتباط با ما"
+#: .\account\email.html:10
+msgid "Please Enter your email"
+msgstr "لطفا ایمیل خود را وارد کنید"
 
-#: .\base.html:59
-msgid "My Account"
-msgstr "حساب من"
+#: .\account\email.html:10
+msgid "Correctly"
+msgstr "به درستی"
 
-#: .\base.html:62
-msgid "Logout"
-msgstr "خروج"
+#: .\account\email.html:25 .\account\password_reset.html:25
+msgid "Send"
+msgstr "ارسال"
 
-#: .\base.html:63
-msgid "Profile"
-msgstr "پروفایل"
-
-#: .\base.html:65
+#: .\account\login.html:8 .\account\login.html:71 .\account\login.html:101
+#: .\account\password_reset_done.html:20 .\account\signup.html:117
+#: .\base.html:76
 msgid "Login"
 msgstr "ورود"
 
-#: .\base.html:66
+#: .\account\login.html:78
+msgid "Username"
+msgstr "نام کاربری"
+
+#: .\account\login.html:88 .\account\signup.html:72
+msgid "Password"
+msgstr "رمز عبور"
+
+#: .\account\login.html:95
+msgid "Forgot password"
+msgstr "فراموشی رمز عبور"
+
+#: .\account\login.html:106
+msgid "back to"
+msgstr "بازگشت به"
+
+#: .\account\login.html:106
+#, fuzzy
+#| msgid "Home"
+msgid "home"
+msgstr "خانه"
+
+#: .\account\login.html:109 .\account\signup.html:7 .\account\signup.html:31
+#, fuzzy
+#| msgid "Sign up"
+msgid "Sign Up"
+msgstr "ثبت نام"
+
+#: .\account\logout.html:4
+#, fuzzy
+#| msgid "Logout"
+msgid "LogOut"
+msgstr "خروج"
+
+#: .\account\logout.html:9
+msgid "Are you sure to Log out"
+msgstr "از خروج مطمئنید"
+
+#: .\account\logout.html:15
+#, fuzzy
+#| msgid "Logout"
+msgid "Log Out"
+msgstr "خروج"
+
+#: .\account\password_change.html:4
+msgid "change your password"
+msgstr "رمز خود را تغییر دهید"
+
+#: .\account\password_change.html:10
+msgid "Change Password Form"
+msgstr "فرم تغییر رمز"
+
+#: .\account\password_change.html:25
+msgid "Submit"
+msgstr "تایید"
+
+#: .\account\password_reset.html:4
+msgid "welcome to Reset Password page"
+msgstr "به صفحه ی بازیابی رمز خوش اومدی"
+
+#: .\account\password_reset.html:10
+msgid "Please Enter your email below"
+msgstr "لطفا ایمیل خود را وارد کنید"
+
+#: .\account\password_reset_done.html:4 .\account\password_reset_done.html:11
+msgid "Password Reset"
+msgstr "بازیابی رمز"
+
+#: .\account\password_reset_done.html:13
+msgid ""
+"We have sent you an e-mail. If you have not received it please check your "
+"spam folder. Otherwise contact us if you do not receive it in a few minutes"
+msgstr ""
+
+#: .\account\password_reset_done.html:17
+msgid "menu"
+msgstr "منو"
+
+#: .\account\password_reset_done.html:18
+msgid "Edit Email"
+msgstr "ویرایش ایمیل"
+
+#: .\account\password_reset_done.html:19
+#, fuzzy
+#| msgid "List"
+msgid "BookList"
+msgstr "لیست محصولات"
+
+#: .\account\signup.html:42
+msgid "Welcome to signup form"
+msgstr "به صفحه ی ثبت نام خوش اومدی"
+
+#: .\account\signup.html:51 .\account\signup.html:86
+msgid "Create an account"
+msgstr "ایجاد حساب"
+
+#: .\account\signup.html:58
+msgid "username"
+msgstr "نام کاربری"
+
+#: .\account\signup.html:65
+msgid "Email Address"
+msgstr "ادرس ایمیل"
+
+#: .\account\signup.html:79
+msgid "password (again)"
+msgstr "رمز(تکرار)"
+
+#: .\account\signup.html:96
+msgid "Signup with this services"
+msgstr "ثبت نام با حساب های"
+
+#: .\account\signup.html:117
+msgid "I'm already a member!"
+msgstr "از قبل حساب دارم"
+
+#: .\base.html:63
+msgid "About"
+msgstr "درباره ما"
+
+#: .\base.html:64 .\base.html:155
+msgid "Contact"
+msgstr "ارتباط با ما"
+
+#: .\base.html:70
+msgid "My Account"
+msgstr "حساب من"
+
+#: .\base.html:73
+msgid "Logout"
+msgstr "خروج"
+
+#: .\base.html:74
+msgid "Profile"
+msgstr "پروفایل"
+
+#: .\base.html:77
 msgid "Sign up"
 msgstr "ثبت نام"
 
-#: .\base.html:102
+#: .\base.html:106
 msgid "Customer Service"
 msgstr "سرویس ها"
 
-#: .\base.html:115
+#: .\base.html:119
 msgid "Categories"
 msgstr "دسته بندی ها"
 
-#: .\base.html:139 .\base.html:185
+#: .\base.html:152 .\base.html:213
 msgid "Home"
 msgstr "خانه"
 
-#: .\base.html:140
+#: .\base.html:153
 msgid "about us"
 msgstr "درباره ما"
 
-#: .\base.html:141
+#: .\base.html:154
 msgid "List"
 msgstr "لیست محصولات"
 
-#: .\base.html:165
+#: .\base.html:157
+msgid "open orders"
+msgstr "سفارشات باز"
+
+#: .\base.html:160
+msgid "create"
+msgstr "ایجاد"
+
+#: .\base.html:194
 msgid "Get In Touch"
 msgstr "با ما در ارتباط باشید"
 
-#: .\base.html:166
-msgid "Our Biography"
-msgstr ""
-
-#: .\base.html:171
+#: .\base.html:199
 msgid "Follow Us"
 msgstr "ما را دنبال کنید"
 
-#: .\base.html:183
+#: .\base.html:211
 msgid "Quick Shop"
 msgstr "محصولات"
 
-#: .\base.html:186
+#: .\base.html:214
 msgid "Our Shop"
 msgstr "فروشگاه ما"
 
-#: .\base.html:187
+#: .\base.html:215
 msgid "About Us"
 msgstr "درباره ما"
 
-#: .\base.html:188
+#: .\base.html:216
 msgid "Shopping Cart"
 msgstr "سبد خرید"
 
-#: .\base.html:189
+#: .\base.html:217
 msgid "Contact Us"
 msgstr "ارتباط با ما"

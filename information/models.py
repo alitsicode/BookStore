@@ -1,10 +1,13 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from accounts.models import Customeuser
+from django.utils.html import format_html
 # Create your models here.
 
 class About_Us(models.Model):
     shop_name=models.CharField(_("Shop_name"), max_length=50)
+    address=models.CharField(_("address"), max_length=50,default='address')
+    email=models.EmailField(_("email"), max_length=254,default='email')
     description=models.TextField(_("description"))
     phone=models.CharField(verbose_name=_('Phone number'), max_length=10,default='9015738669')
     telegram=models.CharField(_("telegram"), max_length=70,blank=True)
@@ -17,7 +20,7 @@ class About_Us(models.Model):
     def __str__(self):
         return self.shop_name
     def work_image_tag(self):
-        return format_html('<img width=150px height=150px src="{}" />'. format(self.work_image.url))
+        return format_html('<img width=100px height=100px src="{}" />'. format(self.work_image.url))
     class Meta:
         verbose_name=_('About u')
 

@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-06 01:07+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: .\templates\order\deleteorder.html:3
+msgid "Delete order"
+msgstr "حذف سفارش"
+
+#: .\templates\order\deleteorder.html:9
+msgid "Are you Sure to Delete order "
+msgstr "آیا از حذف سفارش مطمئنید"
+
+#: .\templates\order\deleteorder.html:13 .\templates\order\listorder.html:13
+msgid "Delete"
+msgstr "حذف"
+
+#: .\templates\order\listorder.html:2
+msgid "all orders"
+msgstr "همه ی سفارشات"
+
+#: .\templates\order\listorder.html:10
+msgid "Order"
+msgstr "سفارش"
+
+#: .\templates\order\listorder.html:11
+msgid "You can pay anytime you want"
+msgstr "هر موقع خواستید پرداخت کنید"
+
+#: .\templates\order\listorder.html:12
+msgid "watch"
+msgstr "بیشتر"
+
+#: .\templates\order\order.html:4
+msgid "order page"
+msgstr "صفحه سفارشات"
+
+#: .\templates\order\order.html:7
+msgid "Your Checkout"
+msgstr "حساب شما"
+
+#: .\templates\order\order.html:27
+msgid "Books"
+msgstr "کتاب ها"
+
+#: .\templates\order\order.html:28
+msgid "Quantity"
+msgstr "تعداد"
+
+#: .\templates\order\order.html:29
+msgid "Price"
+msgstr "قیمت"
+
+#: .\templates\order\order.html:50
+msgid "Total Price"
+msgstr "قیمت کل"
+
+#: .\templates\order\order.html:51
+msgid "Pay"
+msgstr "پرداخت"
+
+#: .\views.py:34
+msgid "your Order successfuly deleted"
+msgstr "سفارش شما با موفقیت حذف شد"

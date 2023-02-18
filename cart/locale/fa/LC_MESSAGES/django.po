@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-05 16:42+0330\n"
+"POT-Creation-Date: 2023-02-06 01:05+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
 #: .\templates\cart\cart.html:4
 msgid "Cart Page"
 msgstr "سبد خرید"
@@ -32,7 +33,7 @@ msgstr "قیمت"
 msgid "Quantity"
 msgstr "تعداد"
 
-#: .\templates\cart\cart.html:22 .\templates\cart\cart.html:63
+#: .\templates\cart\cart.html:22 .\templates\cart\cart.html:65
 msgid "Total"
 msgstr "جمع کل"
 
@@ -40,14 +41,26 @@ msgstr "جمع کل"
 msgid "Remove"
 msgstr "حذف"
 
-#: .\templates\cart\cart.html:51
+#: .\templates\cart\cart.html:53
 msgid "Cart Summary"
 msgstr "جزئیات سبد خرید"
 
-#: .\templates\cart\cart.html:56
+#: .\templates\cart\cart.html:58
 msgid "Subtotal"
 msgstr "جمع "
 
-#: .\templates\cart\cart.html:66
+#: .\templates\cart\cart.html:68
 msgid "Proceed To Checkout"
 msgstr "ادامه ی خرید"
+
+#: .\templates\cart\cart.html:69
+msgid "Back To Shop"
+msgstr "بازگشت به فروشگاه"
+
+#: .\views.py:24
+msgid "successfuly added to cart"
+msgstr "با موفقیت به سبد خرید اضافه شد"
+
+#: .\views.py:30
+msgid "successfuly removed from cart"
+msgstr "با موفقیت از سبد خرید حذف شد"

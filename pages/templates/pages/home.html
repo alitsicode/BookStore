@@ -10,23 +10,32 @@
 
 
     <!-- Carousel Start -->
-    <div class="container-fluid mb-3">
+    <div class="container-fluid my-3">
         <div class="row px-xl-5">
-            <div class="col-lg-4">
-            </div>
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4">
-                {% for top in topview %}
-                    <div class="product-offer mb-30" style="height: 200px;">
-                        <img class="img-fluid" src="{{top.cover.url}}" alt="book cover">
+            {% for hot in hot_product %}
+                <div class="col-6">
+                    <div class="product-offer mb-30" style="height: 250px;">
+                        <img class="img-fluid" style='height:300px;' src="{{hot.cover.url}}" alt="book cover">
                         <div class="offer-text">
-                            <h6 class="text-white text-uppercase">{{top.hits.count}} views</h6>
-                            <h3 class="text-white mb-3">most view last month</h3>
-                            <a href="{% url 'book_detail' top.id %}" class="btn btn-primary">watch</a>
+                            <h6 class="text-white text-uppercase">{{hot.comments.count}} {% trans "comments" %}</h6>
+                            <h3 style='border-radius:7px;' class="text-center text-white mb-3 bg-danger p-1">{% trans "most comment last month" %}</h3>
+                            <a href="{% url 'book_detail' hot.id %}" class="btn btn-primary">{% trans "watch" %}</a>
                         </div>
                     </div>
-                {% endfor %}
-            </div>
+                </div>
+            {% endfor %}
+            {% for top in topview %}
+                <div class="col-6">
+                    <div class="product-offer mb-30" style="height: 250px;">
+                        <img class="img-fluid" style='height:300px;' src="{{top.cover.url}}" alt="book cover">
+                        <div class="offer-text">
+                            <h6 class="text-white text-uppercase">{{top.hits.count}} {% trans "views" %}</h6>
+                            <h3 style='border-radius:5px;' class="text-center text-dark mb-3 bg-warning p-1">{% trans "most view last month" %}</h3>
+                            <a href="{% url 'book_detail' top.id %}" class="btn btn-primary">{% trans "watch" %}</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
     <!-- Carousel End -->
@@ -69,7 +78,7 @@
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">{% trans "Categories" %}</span></h2>
         <div class="row px-xl-5 pb-3">
             {% for category in categories %}
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-1 ">
+                <div class="col-lg-3 col-md-4 col-6 pb-1 ">
                     <a class="text-decoration-none" href="{% url 'book_category' category.id %}">
                         <div class="cat-item d-flex align-items-center mb-4">
                             <div class="overflow-hidden" style="width: 100px; height: 100px;">
@@ -98,13 +107,13 @@
     <div class="container-fluid pt-5">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">{% trans "filters" %}</span></h2>
         <div class="row px-xl-5 pb-3">
-            <div style='background-color:#414141;' class=" px-2 py-4 mb-30">
-                <h2 class='text-light pl-1'>Price :</h2>
-                <form style='border-right:3px solid;' class='col-lg-3 text-light' method='GET' action="{% url 'filter_by_price' %}">
+            <div style='background-color:#d3d3d3;' class=" col-12 px-2 py-4 mb-30">
+                <h2 class='text-dark pl-1'>{% trans "Price" %} :</h2>
+                <form style='border-right:3px solid;' class='col-4 text-dark' method='GET' action="{% url 'filter_by_price' %}">
                     <div class="custom-control custom-checkbox d-flex align-items-center justify-content-center mb-3">
-                        <span><p>from :</p>
+                        <span><p>{% trans "from" %} :</p>
                             <span id="rangeValue">2000</span><span> T</span>
-                            <input class="form-range" name="price1" type="range" min="2000" max="300000" value='2000' onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)">
+                            <input class="form-range" name="price1" type="range" min="2000" max="300000" value='2000' step='1000' onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)">
                             {% comment %} <select name="price1">
                                 <option value='2000'>2000</option>
                                 <option value='4000'>4000</option>
@@ -115,9 +124,9 @@
                         </span>                                      
                     </div>
                     <div class="custom-control custom-checkbox d-flex align-items-center justify-content-center mb-3">
-                        <span><p>to :</p>
+                        <span><p>{% trans "to" %} :</p>
                             <span id="rangeValue2">2000</span><span> T</span>
-                            <input class="form-range" name="price2" type="range" min="2000" max="300000" value='2000' onChange="rangeSlide2(this.value)" onmousemove="rangeSlide2(this.value)">
+                            <input class="form-range" name="price2" type="range" min="2000" max="300000" value='2000' step='1000' onChange="rangeSlide2(this.value)" onmousemove="rangeSlide2(this.value)">
                             {% comment %} <select name="price2">
                                 <option value='4000'>4000</option>
                                 <option value='8000'>8000</option>
@@ -129,37 +138,13 @@
                     </div>                        
                   
                     <div class='text-center pb-3'>
-                        <button class='btn btn-primary'>search</button>
+                        <button class='btn btn-primary'>{% trans "search" %}</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
     <!-- Offer Start -->
-    <div class="container-fluid pt-5 pb-3">
-        <div class="row px-xl-5">
-            <div class="col-md-6">
-                <div class="product-offer mb-30" style="height: 300px;">
-                    <img class="img-fluid" src="{% static 'img/offer-1.jpg' %}" alt="">
-                    <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Save 20%</h6>
-                        <h3 class="text-white mb-3">Special Offer</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="product-offer mb-30" style="height: 300px;">
-                    <img class="img-fluid" src="{% static 'img/offer-2.jpg' %}" alt="">
-                    <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Save 20%</h6>
-                        <h3 class="text-white mb-3">Special Offer</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Offer End -->
 
 
@@ -168,24 +153,24 @@
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">{% trans "Recent Books" %}</span></h2>
         <div class="row px-xl-5">
             {% for book in home_book %}
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <div class="col-lg-3 col-md-4 col-6 pb-1">
                     <div class="product-item bg-light mb-4">
-                        <div class="product-img position-relative overflow-hidden">
-                            <img style='height:280px;' class="img-fluid w-100" src="{{book.cover.url}}" alt="book cover">
+                        <div class="product-img position-relative overflow-hidden text-center">
+                            <img style='height:280px;width:280px;' class="img-fluid" src="{{book.cover.url}}" alt="book cover">
                         </div>
                         <div class="text-center py-4">
                             <form class="py-2" action="{% url 'add_cart' book.id %}" method="POST">
                                 {% csrf_token %}
                                 <input name="quantity" type="hidden" value="1">
                                 <div>
-                                    <button class='btn btn-warning' type="submit">
+                                    <button class='btn btn-warning rounded' type="submit">
                                         <i class="fa fa-shopping-cart"></i>
                                     </button>
                                 </div>
                             </form>
 
                             <a class="h6 text-decoration-none text-truncate" href="{% url 'book_detail' book.id %}">{{book.Title}}</a><br>
-                            <p>seller : <a class='badge badge-warning' href="{% url 'book_seller' book.seller.id %}">{{book.seller}}</a></p>
+                            <p>{% trans "seller" %} : <a class='badge badge-warning' href="{% url 'book_seller' book.seller.id %}">{{book.seller}}</a></p>
                             <div class="d-flex align-items-center justify-content-center mt-2">
                                 {% if book.price_with_discount %}
                                     <a href="{% url 'book_detail' book.id %}"><h5>{{book.price_with_discount|intcomma}}</h5></a><h6 class="text-muted ml-2"><del class='text-danger'>{{book.Price}}</del></h6>              
